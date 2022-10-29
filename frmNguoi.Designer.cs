@@ -162,6 +162,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
             this.Name = "frmNguoi";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNguoi";
             this.ResumeLayout(false);
             this.PerformLayout();

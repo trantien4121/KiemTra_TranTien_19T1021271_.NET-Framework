@@ -39,13 +39,7 @@
             this.txtTenGoi = new System.Windows.Forms.Label();
             this.lblDiaChi = new System.Windows.Forms.Label();
             this.gridNguoi = new System.Windows.Forms.DataGridView();
-            this.tenGoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsNguoi = new System.Windows.Forms.BindingSource(this.components);
             this.gridNhom = new System.Windows.Forms.DataGridView();
-            this.tenNhomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bdsNhom = new System.Windows.Forms.BindingSource(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btnThemNhom = new System.Windows.Forms.ToolStripButton();
             this.btnXoaN = new System.Windows.Forms.ToolStripButton();
@@ -54,12 +48,18 @@
             this.txtTimKiem = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.btnXoaNg = new System.Windows.Forms.ToolStripButton();
+            this.tenGoiDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bdsNguoi = new System.Windows.Forms.BindingSource(this.components);
+            this.tenNhomDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bdsNhom = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridNguoi)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNguoi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridNhom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhom)).BeginInit();
             this.toolStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNguoi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhom)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,33 +150,11 @@
             this.gridNguoi.DataSource = this.bdsNguoi;
             this.gridNguoi.Location = new System.Drawing.Point(267, 28);
             this.gridNguoi.Name = "gridNguoi";
+            this.gridNguoi.ReadOnly = true;
             this.gridNguoi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridNguoi.Size = new System.Drawing.Size(573, 263);
             this.gridNguoi.TabIndex = 2;
             this.gridNguoi.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridNguoi_CellContentClick);
-            // 
-            // tenGoiDataGridViewTextBoxColumn
-            // 
-            this.tenGoiDataGridViewTextBoxColumn.DataPropertyName = "TenGoi";
-            this.tenGoiDataGridViewTextBoxColumn.HeaderText = "Tên gọi";
-            this.tenGoiDataGridViewTextBoxColumn.Name = "tenGoiDataGridViewTextBoxColumn";
-            // 
-            // emailDataGridViewTextBoxColumn
-            // 
-            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
-            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
-            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
-            // 
-            // phoneNumberDataGridViewTextBoxColumn
-            // 
-            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
-            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
-            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-            // 
-            // bdsNguoi
-            // 
-            this.bdsNguoi.DataSource = typeof(QuanLyDanhBa.Model.Nguoi);
             // 
             // gridNhom
             // 
@@ -187,21 +165,11 @@
             this.gridNhom.DataSource = this.bdsNhom;
             this.gridNhom.Location = new System.Drawing.Point(3, 28);
             this.gridNhom.Name = "gridNhom";
+            this.gridNhom.ReadOnly = true;
             this.gridNhom.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.gridNhom.Size = new System.Drawing.Size(258, 395);
             this.gridNhom.TabIndex = 1;
             this.gridNhom.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridNhom_CellContentClick);
-            // 
-            // tenNhomDataGridViewTextBoxColumn
-            // 
-            this.tenNhomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tenNhomDataGridViewTextBoxColumn.DataPropertyName = "TenNhom";
-            this.tenNhomDataGridViewTextBoxColumn.HeaderText = "Tên nhóm";
-            this.tenNhomDataGridViewTextBoxColumn.Name = "tenNhomDataGridViewTextBoxColumn";
-            // 
-            // bdsNhom
-            // 
-            this.bdsNhom.DataSource = typeof(QuanLyDanhBa.Model.Nhom);
             // 
             // toolStrip1
             // 
@@ -255,7 +223,6 @@
             // 
             this.txtTimKiem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txtTimKiem.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTimKiem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(100, 25);
             this.txtTimKiem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTimKiem_KeyDown);
@@ -276,6 +243,44 @@
             this.btnXoaNg.Text = "Xóa liên lạc";
             this.btnXoaNg.Click += new System.EventHandler(this.btnXoaNg_Click);
             // 
+            // tenGoiDataGridViewTextBoxColumn
+            // 
+            this.tenGoiDataGridViewTextBoxColumn.DataPropertyName = "TenGoi";
+            this.tenGoiDataGridViewTextBoxColumn.HeaderText = "Tên gọi";
+            this.tenGoiDataGridViewTextBoxColumn.Name = "tenGoiDataGridViewTextBoxColumn";
+            this.tenGoiDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            this.emailDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "Số điện thoại";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bdsNguoi
+            // 
+            this.bdsNguoi.DataSource = typeof(QuanLyDanhBa.Model.Nguoi);
+            // 
+            // tenNhomDataGridViewTextBoxColumn
+            // 
+            this.tenNhomDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tenNhomDataGridViewTextBoxColumn.DataPropertyName = "TenNhom";
+            this.tenNhomDataGridViewTextBoxColumn.HeaderText = "Tên nhóm";
+            this.tenNhomDataGridViewTextBoxColumn.Name = "tenNhomDataGridViewTextBoxColumn";
+            this.tenNhomDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bdsNhom
+            // 
+            this.bdsNhom.DataSource = typeof(QuanLyDanhBa.Model.Nhom);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -283,15 +288,16 @@
             this.ClientSize = new System.Drawing.Size(867, 450);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CHƯƠNG TRÌNH QUẢN LÝ DANH BẠ - [Họ tên sinh viên]";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridNguoi)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNguoi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridNhom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsNhom)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNguoi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsNhom)).EndInit();
             this.ResumeLayout(false);
 
         }

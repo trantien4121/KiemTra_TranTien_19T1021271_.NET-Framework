@@ -82,6 +82,7 @@
             this.Controls.Add(this.txtTenNhom);
             this.Controls.Add(this.label1);
             this.Name = "frmNhom";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNhom";
             this.ResumeLayout(false);
             this.PerformLayout();

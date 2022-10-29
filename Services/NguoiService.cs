@@ -77,7 +77,10 @@ namespace QuanLyDanhBa.Services
 
         public static List<NguoiViewModel> TimKiemLienLac(int idNhom, string key)
         {
-            var rs = NguoiService.Getlist(idNhom).Where(e => e.TenGoi.ToLower().Contains(key.ToLower())).ToList();
+            var rs = NguoiService.Getlist(idNhom).Where(e => e.TenGoi.ToLower().Contains(key.ToLower()) || 
+                                                        e.PhoneNumber.ToLower().Contains(key.ToLower()) || 
+                                                        e.Email.ToLower().Contains(key.ToLower()) ||
+                                                        e.DiaChi.ToLower().Contains(key.ToLower())).ToList();
             return rs;
         }
     }

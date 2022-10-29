@@ -20,7 +20,7 @@ namespace QuanLyDanhBa
             
             NapDsNhom();
             NapDsNguoi();
-            if (selectedNguoi != null)
+            if (selectedNguoi != null && selectedNhom!=null)
                 NapThongTin();
         }
         public NhomViewModel selectedNhom
@@ -53,7 +53,7 @@ namespace QuanLyDanhBa
                 lblPhoneNumber.Show();
 
                 txtTenGoi.Show();
-                txtsodienthoai.Show();
+                txtemail.Show();
                 txtdiachi.Show();
                 txtsodienthoai.Show();
 
@@ -114,11 +114,25 @@ namespace QuanLyDanhBa
         {
             if (selectedNhom != null)
             {
-                var rs = MessageBox.Show("Bạn có chắc là muốn xóa?", "Chú ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-                if (rs == DialogResult.OK)
+                if (selectedNguoi != null)
                 {
-                    NhomService.Deletenhom(selectedNhom);
-                    NapDsNhom();
+                    var rs = MessageBox.Show($"Nhóm {selectedNhom.TenNhom} đang có liên lạc, Bạn có chắc là muốn xóa Nhóm này?", "Chú ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.OK)
+                    {
+                        NhomService.Deletenhom(selectedNhom);
+                        NapDsNhom();
+                        NapDsNguoi();
+                    }
+                }
+                else
+                {
+                    var rs = MessageBox.Show($"Bạn có chắc là muốn xóa Nhóm {selectedNhom.TenNhom}?", "Chú ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (rs == DialogResult.OK)
+                    {
+                        NhomService.Deletenhom(selectedNhom);
+                        NapDsNhom();
+                        NapDsNguoi();
+                    }
                 }
             }
         }
@@ -127,7 +141,7 @@ namespace QuanLyDanhBa
         {
             if (selectedNguoi != null)
             {
-                var rs = MessageBox.Show("Bạn có chắc là muốn xóa?", "Chú ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                var rs = MessageBox.Show("Bạn có chắc là muốn xóa liên lạc này?", "Chú ý", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
                 if (rs == DialogResult.OK)
                 {
                     NguoiService.Deletenguoi(selectedNguoi);
